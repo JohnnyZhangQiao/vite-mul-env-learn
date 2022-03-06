@@ -2,7 +2,7 @@
   "name": "vite-mul-env-learn",
   "version": "0.0.0",
   "scripts": {
-    "dev:local": "vite --mode local",
+    "dev:local": "vite --mode _local",
     "dev:test": "vite --mode test",
     "build:beta": "vite build --mode beta",
     "build:release": "vite build --mode release",
