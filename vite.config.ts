@@ -7,10 +7,16 @@ import { fetchEnv } from './server/envUitls';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode }: ConfigEnv) => {
-  const env = loadEnv(mode, __dirname);
+  const env = loadEnv(mode, path.resolve(__dirname), ['VITE_', 'MY_', 'YOUR_']);
+  console.log('env:', env);
+
   const { proxy } = fetchEnv(env.VITE_NODE_ENV); // 设置域名和端口
 
   return {
+    // envDir: './viteEnv',
+    // or
+    envDir: './',
+    envPrefix: ['VITE_', 'MY_', 'YOUR_'],
     base: './',
     plugins: [
       vue(),

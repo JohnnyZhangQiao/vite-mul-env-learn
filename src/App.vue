@@ -8,6 +8,11 @@ interface IEnv extends ImportMetaEnv {
   VITE_POSITION: string;
 }
 const viteEnv: IEnv = import.meta.env;
+
+console.log(
+  `配置项  ===> envDir: ${viteEnv.VITE_OWNER === 'Inner' ? './viteEnv' : './'}\n`,
+  viteEnv
+);
 </script>
 
 <template>

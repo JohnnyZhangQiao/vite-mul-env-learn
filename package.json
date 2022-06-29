@@ -4,6 +4,7 @@
   "scripts": {
     "dev:local": "vite --mode _local",
     "dev:test": "vite --mode test",
+    "dev:demo": "vite --mode demo",
     "build:beta": "vite build --mode beta",
     "build:release": "vite build --mode release",
     "lint": "eslint --fix --ext .js,.vue,ts src"
