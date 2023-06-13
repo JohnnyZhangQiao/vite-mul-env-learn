@@ -8,10 +8,18 @@ interface IEnv extends ImportMetaEnv {
   VITE_POSITION: string;
 }
 const viteEnv: IEnv = import.meta.env;
+const defineParams = ref({
+  SERVER_TIMESTAMP,
+  PROJECT_VERSION
+})
 
 console.log(
-  `配置项  ===> envDir: ${viteEnv.VITE_OWNER === 'Inner' ? './viteEnv' : './'}\n`,
-  viteEnv
+  `配置项  ===> envDir: ${
+    viteEnv.VITE_OWNER === 'Inner' ? './viteEnv' : './'
+  }\n`,
+  viteEnv,
+  PROJECT_VERSION,
+  SERVER_TIMESTAMP
 );
 </script>
 
@@ -46,6 +54,17 @@ console.log(
         <p>是否为构建模式：{{ viteEnv.PROD }}</p>
         <p>当前启动命令读取的mode为：{{ viteEnv.MODE }}</p>
         <p>部署应用时的基本 URL：{{ viteEnv.BASE_URL }}</p>
+      </div>
+      <div class="card">
+        <h3>④通过Vite define定义的全局变量</h3>
+        <div class="tips">
+          说明：参考
+          <a href="https://v3.vitejs.dev/config/shared-options.html#define"
+            >define</a
+          >
+        </div>
+        <p>参数SERVER_TIMESTAMP：{{ defineParams.SERVER_TIMESTAMP }}</p>
+        <p>参数PROJECT_VERSION：{{ defineParams.PROJECT_VERSION }}</p>
       </div>
     </section>
   </div>

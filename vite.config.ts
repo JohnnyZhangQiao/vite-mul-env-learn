@@ -4,6 +4,7 @@ import VueSetupExtend from 'vite-plugin-vue-setup-extend';
 import path from 'path';
 import EnvironmentPlugin from 'vite-plugin-environment';
 import { fetchEnv } from './server/envUitls';
+import pkg from './package.json';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode }: ConfigEnv) => {
@@ -18,6 +19,10 @@ export default defineConfig(({ command, mode }: ConfigEnv) => {
     envDir: './',
     envPrefix: ['VITE_', 'MY_', 'YOUR_'],
     base: './',
+    define: {
+      SERVER_TIMESTAMP: Date.now(),
+      PROJECT_VERSION: JSON.stringify(pkg.version)
+    },
     plugins: [
       vue(),
       // script setup语法糖增强插件

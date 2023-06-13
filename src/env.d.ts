@@ -6,3 +6,6 @@ declare module '*.vue' {
   const component: DefineComponent<{}, {}, any>;
   export default component;
 }
+
+declare const SERVER_TIMESTAMP: number;
+declare const PROJECT_VERSION: string;
